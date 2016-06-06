@@ -1,0 +1,15 @@
+farmhelper.setting.title=Farm plant helper 選項
+farmhelper.setting.general.comment=選擇那些作物要啟用此功能，這些設定都可以在遊戲中修改
+farmhelper.setting.fasterbfs=使用十字形搜尋法
+farmhelper.setting.fasterbfs.comment=勾選:依照北東南西的順序做搜尋；不勾選:從正北方開始順時針做搜尋
+farmhelper.setting.wheat=小麥種子
+farmhelper.setting.pumpkin=南瓜種子
+farmhelper.setting.melon=西瓜種子
+farmhelper.setting.carrot=胡蘿蔔
+farmhelper.setting.potato=馬鈴薯
+farmhelper.setting.wart=地獄疙瘩
+farmhelper.setting.beetroot=甜菜根種子
+farmhelper.setting.maxcount=最大種植量
+farmhelper.setting.maxcount.comment=一次種植最大上限，0 代表不限制 [0~64]
+farmhelper.setting.warning=實際種植數量還是以 Server 所接受的為準
+farmhelper.mainhand.mustnull.msg=如要快速種植副手物品，主手請勿拿著可種植的其他物品

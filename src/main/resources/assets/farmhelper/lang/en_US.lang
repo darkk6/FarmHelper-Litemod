@@ -1,0 +1,15 @@
+farmhelper.setting.title=Farm plant helper Options
+farmhelper.setting.general.comment=What crops do you want, you can chnage these setting in-game.
+farmhelper.setting.fasterbfs=Use Cross search
+farmhelper.setting.fasterbfs.comment=Search by cross / clockwise.
+farmhelper.setting.wheat=Wheat seeds
+farmhelper.setting.pumpkin=Pumpkin seeds
+farmhelper.setting.melon=Melon seeds
+farmhelper.setting.carrot=Carrot
+farmhelper.setting.potato=Potato
+farmhelper.setting.wart=Nether wart
+farmhelper.setting.beetroot=Beetroot seeds
+farmhelper.setting.maxcount=Max plant count
+farmhelper.setting.maxcount.comment=Max count each time, 0:Unlimited [0~64]
+farmhelper.setting.warning=The actual planted number is dependent on Server
+farmhelper.mainhand.mustnull.msg=If you'd like to fast plant crops in offhand, don't take other crops in main hand.
