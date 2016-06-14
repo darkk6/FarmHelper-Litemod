@@ -24,7 +24,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.liteloader'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "1.0"
+version = "1.1"
 group = "tw.darkk6.litemod.farmhelper" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "farmhelper"
 

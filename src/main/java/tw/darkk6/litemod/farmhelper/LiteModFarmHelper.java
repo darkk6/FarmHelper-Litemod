@@ -16,6 +16,7 @@ import tw.darkk6.litemod.farmhelper.plant.PlantManager;
 import tw.darkk6.litemod.farmhelper.util.Config;
 import tw.darkk6.litemod.farmhelper.util.Log;
 import tw.darkk6.litemod.farmhelper.util.Reference;
+import tw.darkk6.litemod.farmhelper.util.Util;
 
 import com.mumfrey.liteloader.Configurable;
 import com.mumfrey.liteloader.PlayerClickListener;
@@ -90,11 +91,13 @@ public class LiteModFarmHelper implements PlayerClickListener,Configurable {
 		if(!plant.canPlantAt(player.worldObj, hitPos)) return;
 		list = plant.doBFSSearch(player.worldObj, hitPos, count, Config.get().fasterBFS);
 		
+		int maxDis=Config.get().maxDistance;
 		//==== BFS 搜尋完成，開始種植 =====
 		//數量內的點都找完了 , 將有效數量的種下去，跳過 0 是因為  0=作用的那一格
 		for(int i=1;i<count && i<list.size();i++){
 			//這裡不能使用 itemStack.onItemUse , 那個不會與 Server 通訊 , 物品只是看起來有而已
 			// 1.9 , 改用 processRightClickBlock , 1.8.8=>onPlayerRightClick
+			if(maxDis!=0 && !Util.isDistLessThan(player, list.get(i), maxDis)) continue;
 			mc.playerController.processRightClickBlock(
 					player,
 					(WorldClient)(player.worldObj), 
@@ -104,6 +107,21 @@ public class LiteModFarmHelper implements PlayerClickListener,Configurable {
 					player.getPositionVector(),
 					whichHand
 				);
+		}
+		
+		//==== 要求更新 ====
+		if(Config.get().requestUpdate){
+			for(int i=1;i<count && i<list.size();i++){
+				mc.playerController.processRightClickBlock(
+						player,
+						(WorldClient)(player.worldObj), 
+						null, 
+						list.get(i).up(),
+						EnumFacing.UP,
+						player.getPositionVector(),
+						whichHand
+					);
+			}
 		}
 		return;
 	}

@@ -44,8 +44,18 @@ public class Config implements Exposable{
 	@Expose @SerializedName("maxCount")
 	public int maxCount=0;
 	
+	@Expose @SerializedName("maxDistance")
+	public int maxDistance=6;
+	
+	@Expose @SerializedName("requestUpdate")
+	public boolean requestUpdate=false;
+	
 	public String getFasterBFSString(){
 		return "fasterBFS";
+	}
+	
+	public String getRequstUpdateStr(){
+		return "requestUpdate";
 	}
 	
 	public String[] getCropList(){
@@ -61,11 +71,11 @@ public class Config implements Exposable{
 	
 	public void init(){
 		LiteLoader.getInstance().registerExposable(this,null);
-		verifyMaxCount();
+		verifyCountNumbers();
 	}
 	
 	public void save(){
-		verifyMaxCount();
+		verifyCountNumbers();
 		LiteLoader.getInstance().writeConfig(this);
 	}
 	
@@ -85,8 +95,11 @@ public class Config implements Exposable{
 		}
 	}
 	
-	private void verifyMaxCount(){
+	private void verifyCountNumbers(){
 		if(maxCount<0) maxCount=0;
 		else if(maxCount>64) maxCount=64;
+		
+		if(maxDistance<0) maxDistance=0;
+		else if(maxDistance>10) maxDistance=10;
 	}
 }
